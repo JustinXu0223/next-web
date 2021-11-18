@@ -24,6 +24,14 @@ const Home: NextPage = () => {
         <Button type={'link'}>SSR demo1 反转路由</Button>
       </Link>
       <hr />
+      <Link href={'/demo/isr'}>
+        <Button type={'link'}>ISR demo 真实路由</Button>
+      </Link>
+      <hr />
+      <Link href={'/demo/ssg'}>
+        <Button type={'link'}>SSG demo 真实路由</Button>
+      </Link>
+      <hr />
     </div>
   );
 };
