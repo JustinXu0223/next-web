@@ -1,0 +1,9 @@
+# Browsers that we support https://github.com/browserslist/browserslist
+
+# 生产环境和测试环境
+# [production staging]
+iOS >= 8
+Android >= 4.4
+
+# 开发环境
+# [development]

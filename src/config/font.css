@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'DIN';
+  src: local('DIN');
+  src: url('./font/din.woff');
+  src: url('./font/din.woff') format('woff'), url('./font/din.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'PingFangSC';
+  src: local('PingFangSC');
+  src: url('./font/PingFangSCRegular.woff');
+  src: url('./font/PingFangSCRegular.woff') format('woff'),
+    url('./font/PingFangSCRegular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'HYYakuHei';
+  src: local('HYYakuHei');
+  src: url('./font/HYYakuHei-75W.woff');
+  src: url('./font/HYYakuHei-75W.woff') format('woff'),
+    url('./font/HYYakuHei-75W.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'DINCondensed-Bold';
+  src: local('DINCondensed-Bold');
+  src: url('./font/DINCondensed-Bold.woff');
+  src: url('./font/DINCondensed-Bold.woff') format('woff'),
+    url('./font/DINCondensed-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'dinpro';
+  src: local('dinpro');
+  src: url('/font/din.woff');
+  src: url('/font/din.woff') format('woff'), url('./font/din.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'DinPro';
+  src: local('DinPro');
+  src: url('/font/DINPro.ttf');
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'DinProBold';
+  src: local('DinProBold');
+  src: url('./font/DINPro-Bold.otf');
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'DinProMedium';
+  src: local('DinProMedium');
+  src: url('./font/DINPro-Medium.otf');
+  font-display: block;
+}

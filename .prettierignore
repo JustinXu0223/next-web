@@ -1,0 +1,20 @@
+# Ignore resource:
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# dist文件
+dist/**
+
+# vscode
+.vscode/**
+
+# idea
+*.iml
+.idea/**
+
+# lock 文件
+package-lock.json
+yarn.lock

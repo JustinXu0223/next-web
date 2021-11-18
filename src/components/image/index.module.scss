@@ -1,0 +1,33 @@
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  &.contain {
+    background-size: contain;
+  }
+
+  &.cover {
+    background-size: cover;
+  }
+
+  &.auto {
+    background-size: auto;
+  }
+
+  &.inherit {
+    background-size: inherit;
+  }
+
+  &.initial {
+    background-size: initial;
+  }
+
+  &.revert {
+    background-size: revert;
+  }
+
+  &.unset {
+    background-size: unset;
+  }
+}
