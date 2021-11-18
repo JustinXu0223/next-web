@@ -2,13 +2,14 @@ import { NextPage } from 'next';
 // components
 import Test from './components/test';
 
-const Demo: NextPage = () => {
+const ImgDemo: NextPage = () => {
   return (
     <div>
-      demo
+      img demo
+      <hr />
       <Test />
     </div>
   );
 };
 
-export default Demo;
+export default ImgDemo;
