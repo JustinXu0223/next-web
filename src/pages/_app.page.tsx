@@ -6,16 +6,21 @@ import Script from 'next/script';
 require('@/config/rest.scss');
 // 字体
 require('@/config/font.css');
+// mobx
+import { enableStaticRendering } from 'mobx-react';
 // 生产环境禁止调试
 import { disableReactDevTools, disableDebugger } from '@/utils/debug';
+import { isBrowser } from '@/utils/detect';
 if (
   process.env.NODE_ENV === 'production' &&
   process.env.NEXT_PUBLIC_ENV === 'prod' &&
-  typeof window !== 'undefined'
+  isBrowser()
 ) {
   disableReactDevTools();
   disableDebugger();
 }
+// https://github.com/mobxjs/mobx-react
+enableStaticRendering(!isBrowser());
 
 function App({ Component, pageProps }: AppProps) {
   return (

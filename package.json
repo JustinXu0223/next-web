@@ -41,6 +41,8 @@
     "antd": "^4.16.13",
     "js-base64": "^3.7.2",
     "js-next-optimized-images": "^3.0.0-canary.11",
+    "mobx": "^6.3.7",
+    "mobx-react": "^7.2.1",
     "next": "^11.1.2",
     "next-pwa": "^5.4.0",
     "next-videos": "^1.4.0",
@@ -51,6 +53,9 @@
     "sharp": "^0.29.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@babel/plugin-proposal-decorators": "^7.16.4",
     "@next/bundle-analyzer": "^12.0.3",
     "@types/node": "16.11.7",
     "@types/react": "17.0.34",

@@ -32,6 +32,10 @@ const Home: NextPage = () => {
         <Button type={'link'}>SSG demo 真实路由</Button>
       </Link>
       <hr />
+      <Link href={'/demo/mobx'}>
+        <Button type={'link'}>MOBX demo 真实路由</Button>
+      </Link>
+      <hr />
     </div>
   );
 };
