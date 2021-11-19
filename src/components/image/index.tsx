@@ -74,6 +74,31 @@ export default function Image({
   blurDataURL,
   ...all
 }: ImageProps) {
+  const router = useRouter();
+
+  let isLazy = !priority && (loading === 'lazy' || typeof loading === 'undefined');
+  if (typeof src === 'string' && src.startsWith('data:')) {
+    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs
+    unoptimized = true;
+    isLazy = false;
+  }
+  if (typeof window !== 'undefined' && loadedImageURLs.has(typeof src === 'string' ? src : '')) {
+    isLazy = false;
+  }
+  const [setRef, isIntersected] = useIntersection<HTMLImageElement | HTMLDivElement>({
+    rootMargin: lazyBoundary,
+    disabled: !isLazy,
+  });
+
+  const {
+    observe,
+    width: calculateSizes,
+    currentBreakpoint,
+  } = useDimensions({
+    breakpoints: newSizes,
+    updateOnBreakpointChange: true,
+  });
+
   // 如果src为空 但是children有值，不走图像处理直接返回type
   if (!src && children) {
     return React.createElement(
@@ -92,7 +117,9 @@ export default function Image({
         }),
       ],
     );
-  } else if (!src) {
+  }
+
+  if (!src) {
     return null;
   }
 
@@ -101,14 +128,6 @@ export default function Image({
   width = width || style?.width;
   height = height || style?.height;
 
-  const {
-    observe,
-    width: calculateSizes,
-    currentBreakpoint,
-  } = useDimensions({
-    breakpoints: newSizes,
-    updateOnBreakpointChange: true,
-  });
   let layout: NonNullable<LayoutValue> = sizes ? 'responsive' : 'intrinsic';
   // 这段代码不能在layout之前,否在影响布局判断
   sizes = sizes || (calculateSizes ? `${calculateSizes * baseScale}px` : void 0);
@@ -146,16 +165,6 @@ export default function Image({
   const heightInt = getInt(height);
 
   const qualityInt = getInt(quality);
-
-  let isLazy = !priority && (loading === 'lazy' || typeof loading === 'undefined');
-  if (src.startsWith('data:')) {
-    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Data_URIs
-    unoptimized = true;
-    isLazy = false;
-  }
-  if (typeof window !== 'undefined' && loadedImageURLs.has(src)) {
-    isLazy = false;
-  }
 
   if (process.env.NODE_ENV !== 'production') {
     if (!src) {
@@ -212,10 +221,6 @@ export default function Image({
     }
   }
 
-  const [setRef, isIntersected] = useIntersection<HTMLImageElement | HTMLDivElement>({
-    rootMargin: lazyBoundary,
-    disabled: !isLazy,
-  });
   const isVisible = !isLazy || isIntersected;
 
   let wrapperStyle: JSX.IntrinsicElements['div']['style'] | undefined;
@@ -385,7 +390,6 @@ export default function Image({
     }
   }
 
-  const router = useRouter();
   const onClickImage = (href?: any) => () => {
     if (href) {
       router.push(href);
@@ -504,7 +508,7 @@ export default function Image({
             // imagesrcset={imgAttributes.srcSet}
             // @ts-ignore: imagesizes is not yet in the link element type
             // imagesizes={imgAttributes.sizes}
-          ></link>
+          />
         </Head>
       ) : null,
       React.Children.map(children, (child: any, index): any => {
