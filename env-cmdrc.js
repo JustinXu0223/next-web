@@ -25,6 +25,7 @@ module.exports = ENV_LIST.reduce(
 
     // 服务器启动
     prev[`start:${curr}`] = Object.assign({
+      NODE_ENV: 'production',
       NEXT_PUBLIC_ENV: curr,
       NEXT_PUBLIC_IMAGE_DOMAINS: NEXT_PUBLIC_IMAGE_DOMAINS_LIST.join(),
     });

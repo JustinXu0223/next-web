@@ -50,6 +50,7 @@ export function useIntersection<T extends Element>({
     if (!hasIntersectionObserver) {
       if (!visible) {
         const idleCallback = requestIdleCallback(() => setVisible(true));
+        // @ts-ignore
         return () => cancelIdleCallback(idleCallback);
       }
     }
