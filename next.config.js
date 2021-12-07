@@ -81,8 +81,6 @@ module.exports = require('next-compose-plugins')(
       ];
     },
     images: {
-      // 图片服务器地址需要先配置，否则获取线上服务器图片会报错
-      domains: (process.env.NEXT_PUBLIC_IMAGE_DOMAINS || '').split(/[,\s]+/),
       deviceSizes: [768, 1200, 1440, 1600, 1680, 1920, 2560, 3840],
       imageSizes: [16, 32, 48, 64, 70, 89, 96, 106, 124, 140, 195, 216, 240, 384],
       disableStaticImages: true,
