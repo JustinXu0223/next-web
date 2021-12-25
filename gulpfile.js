@@ -35,7 +35,8 @@ gulp.task('copy', function () {
       .pipe(gulp.dest(DEST)),
     gulp.src('public/**/*').pipe(gulp.dest(DEST + '/public')),
     gulp.src('.husky/**/*').pipe(gulp.dest(DEST + '/.git')),
-    gulp.src('dist/**/*').pipe(gulp.dest(DEST + '/dist')),
+    // 不复制构建缓存文件
+    gulp.src(['dist/**/*', '!dist/cache/**']).pipe(gulp.dest(DEST + '/dist')),
     // next.config.js有使用。
     gulp.src('src/config/**/*').pipe(gulp.dest(DEST + '/src/config')),
     gulp.src(['src/themes/*.scss', 'src/themes/*.less']).pipe(gulp.dest(DEST + '/src/themes')),
