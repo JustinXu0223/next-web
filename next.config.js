@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 // App 内嵌需要特殊离线缓存需要特殊处理-只包括配置的路由
 const swRouter = require('./src/config/swRouter');
+// 编译混淆
+const WebpackObfuscator = require('webpack-obfuscator');
 
 /** @type {import('next').NextConfig} */
 module.exports = require('next-compose-plugins')(
@@ -97,10 +99,15 @@ module.exports = require('next-compose-plugins')(
       ),
     },
     // 自定义webpack
-    webpack: (config, { isServer }) => {
+    webpack: (config, { dev, isServer }) => {
       if (!isServer) {
         // 删除nextjs的默认cacheGroups, 使用webpack的规则(nextjs cacheGroups规则在代码拆分后antd等组件没有拆分)
         delete config.optimization.splitChunks.cacheGroups;
+      }
+
+      // 生产模式打开
+      if (!dev) {
+        config.plugins.push(new WebpackObfuscator());
       }
 
       // Important: return the modified config
