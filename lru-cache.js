@@ -100,16 +100,16 @@ module.exports = {
 
         if (res.statusCode === 200) {
           // 模拟一个json格式的hash 构建两个key,一个真实的，一个虚拟的。
-          const proopsKey1 = `/_next/data/${app.server.buildId}${
+          const propsKey1 = `/_next/data/${app.server.buildId}${
             pathname !== pagePath ? pathname : pagePath
           }.json/${getCookieValue('X-API-TOKEN', req)}`;
 
-          const proopsKey2 = `/_next/data/${app.server.buildId}${
+          const propsKey2 = `/_next/data/${app.server.buildId}${
             pathname === pagePath ? getTrulyRouter(app, pagePath, 'destination') : pagePath
           }.json/${getCookieValue('X-API-TOKEN', req)}`;
 
-          ssrCache.set(proopsKey2, pageProps);
-          ssrCache.set(proopsKey1, pageProps);
+          ssrCache.set(propsKey2, pageProps);
+          ssrCache.set(propsKey1, pageProps);
         }
       }
 
