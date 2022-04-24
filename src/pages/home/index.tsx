@@ -36,6 +36,10 @@ const Home: NextPage = () => {
         <Button type={'link'}>MOBX demo 真实路由</Button>
       </Link>
       <hr />
+      <Link href={'/demo/fingerprint'}>
+        <Button type={'link'}>指纹路由</Button>
+      </Link>
+      <hr />
     </div>
   );
 };
